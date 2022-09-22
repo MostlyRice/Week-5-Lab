@@ -8,3 +8,8 @@ input, select {
 input.error, select.error {
   border: 2px red solid;
 }
+
+.jumbotron {
+
+	background-color: olivedrab;
+}

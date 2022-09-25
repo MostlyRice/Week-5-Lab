@@ -17,9 +17,14 @@ let iss_location = {
   "message": "success"
 }
 
-// TODO Extract the latitude value, and log it to the console.
-// TODO Extract the longitude value, and log it to the console.
+// Extract the latitude value, and log it to the console.
+// Extract the longitude value, and log it to the console
 
+let latitude = iss_location.iss_position.latitude
+console.log(`Latitude: ${latitude}`)
+
+let longitude = iss_location.iss_position.longitude
+console.log(`Longitude: ${longitude}`)
 
 
 
@@ -36,10 +41,19 @@ let rates = {
     "CAD": 1.5194
 }
 
-// TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
-// TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
-//      the equivalent value in Australian Dollars (AUD)
-// TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
+// write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
+rates["CHF"] = 1.1787
+
+// if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
+// the equivalent value in Australian Dollars (AUD)
+let myMoney = 100
+let australianRate = rates.AUD
+console.log(australianRate)
+
+let exchangedforAustralian = myMoney * australianRate
+console.log(myMoney + ' Euros is equivalent to ' + exchangedforAustralian + ' Australian dollars.')
+
+//  write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
 
@@ -55,9 +69,26 @@ let cats_and_owners = [
   { name: "Snoop Dogg", cat: "Miles Davis" }
 ]
 
-// TODO print Gary Oldman's cat's name
-// TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
-// TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
+//print Gary Oldman's cat's name
+console.log("Print Gary Oldman's cat's name: ")
+let garyCat = cats_and_owners[1].cat
+//print Gary Oldman's cat's name
+console.log(garyCat)
+
+// Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
+cats_and_owners.push({name: "Taylor Swift", cat: "Meredith"})
+
+// write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
+let catOwnerArray = cats_and_owners
+let catOwnerList = []
+catOwnerArray.forEach( function( catOwnerPair) {
+  let humanName = catOwnerPair.name
+  let catName = catOwnerPair.cat
+  catOwnerList.push(humanName)
+  catOwnerList.push(catName)
+  let catNameHumanName = (humanName + ', ' + catName)
+  console.log(catNameHumanName)
+})
 //   Each line should have a message like "Snoop Dogg's cat is called Miles Davis"
 
 

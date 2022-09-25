@@ -3,12 +3,9 @@
     let homeownerHouseNumberInput = document.querySelector('#homeowner-house-number')
     let homeownerStreetNameInput = document.querySelector('#homeowner-street-name')
     let treeTypeSelect = document.querySelector('#tree-type')
-
-    // TODO create a variable for city input element
-    // TODO create a variable for zip code input element
-    
+    let cityNameInput = document.querySelector('#city')
+    let zipcodeInput = document.querySelector('#zipcode')
     let submitButton = document.querySelector('#submit-order')
-
     let orderSummaryParagraph = document.querySelector('#order-summary')
 
     submitButton.addEventListener('click', function() {
@@ -17,15 +14,42 @@
         let houseNumber = homeownerHouseNumberInput.value
         let streetName = homeownerStreetNameInput.value
         let treeType = treeTypeSelect.value
+        let city = cityNameInput.value
+        let zipcode = zipcodeInput.value
 
-        // TODO get the value from the input#city
-        // TODO get the value from the input#zipcode
+        let errors = []
 
-        // TODO Validate that all six input and select elements have been completed
+        // Validate that all six input and select elements have been completed
         //  - check they all have a value
-
-        // TODO Validate the zipcode is in the range 55001 and 56763. 
+        if (!name) {    
+            errors.push('Enter your name')
+        }
+        if (!houseNumber) {
+            errors.push('Enter your house number')
+        }
+        if (!streetName) {
+            errors.push('Enter your street address')
+        }
+        if (treeType == "") {
+            errors.push('Select a tree type')
+        }
+        if (!city) {
+            errors.push('Enter your city')
+        }
+        if (!zipcode) {
+            errors.push('Enter a zip code')
+        }
+        if (errors.length > 0) {
+            let errorMessage = errors.join('\n')
+            alert(errorMessage)
+            return
+        }
+        
+        // Validate the zipcode is in the range 55001 and 56763. 
         // to check that the zip code is in Minnesota.
+        if (zipcode <55001 || zipcode > 56763) {
+            errors.push('Enter a valid Minnesota zipcode')
+        }
         // Make sure your script doesn't accept non-numeric input for the zip code. 
 
         // Optional extra: add the class .error to any inputs with an error (and only inputs with an error)
@@ -34,7 +58,6 @@
         // which will be applied if you give the class .error to any elements on the page. 
         // Make sure you remove this class when the form is completed correctly.
 
-        let errors = []
         
         // If a form element has not been completed, or if the data is not valid, 
         // add an error message to the errors array. (Hint: use push to add to the end of the array)
@@ -46,10 +69,12 @@
         // and then return from this function to prevent further processing 
 
 
-        // TODO - If there are no errors, use a template string to display an order 
+        // If there are no errors, use a template string to display an order 
         // summary in the order summary paragraph.
+        let summary =  `Homeowner Name: ${name} Address: ${houseNumber} ${streetName} ${city}, Minnesota ${zipcode} 
+        Tree Type: ${treeType}`
 
-        
+        orderSummaryParagraph.innerHTML = summary
     })
 
 

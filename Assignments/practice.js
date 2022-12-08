@@ -229,3 +229,19 @@ let nobel_prize_winners_2017 = {
     }
   ]
 }
+
+let fullList = nobel_prize_winners_2017.prizes[0]
+console.log("Full List: " + fullList) // check / view
+
+let literatureAwardInfo = fullList[3]
+console.log("Prizes[0]: " + prizeInfo)
+
+let literatureLaureate = literatureAwardInfo
+console.log("Literature Laureate Info: " + literatureLaureate)
+
+
+
+let litlaureateFirstName = nobel_prize_winners_2017.prizes[0].laureates.firstname
+let litLaureateSurname = nobel_prize_winners_2017.prizes[0].laureates.surname
+
+console.log("The literature Nobel Laureate in 2017 was: " + litlaureateFirstName + ' ' + litLaureateSurname)
